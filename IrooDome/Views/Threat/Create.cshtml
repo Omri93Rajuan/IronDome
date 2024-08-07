@@ -1,0 +1,46 @@
+﻿@model IrooDome.ViewModels.CreateThreatViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Threat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="OrgId">Terror org</label>
+                <select asp-for="OrgId" class="form-control" asp-items="Model.TerrorOrgs">
+                    <option value="">Select terror organization</option>
+                </select>
+                <span asp-validation-for="OrgId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ThreatTypeId">Terror Organization</label>
+                <select asp-for="ThreatTypeId" class="form-control" asp-items="Model.Types">
+                    <option value="">Select terror organization</option>
+                </select>
+                <span asp-validation-for="ThreatTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
